@@ -1,96 +1,91 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
+import ExperienceCard from '../components/ExperienceCard.astro';
+import ContactComponent from '../components/ContactComponent.astro';
+import Badge from '../components/Badge.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Experience from '../components/icons/Experience.astro'
+import StudyCard from '../components/StudyCard.astro';
+
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
+<Layout title="Cristian Guzman - Desarrollador FullStack" >
 		
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
-</Layout>
+	<main class="
+		bg-secondLightGray
+		dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,#1c1d1c,rgba(255,255,255,0))] 
+		shadow-2xl shadow-slate-50 w-[1120px]"
+	>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
-</style>
+		<SectionContainer id="init" class="pt-32 md:lg:pt-60 pb-32 md:lg:pb-48 flex flex-col md:lg:flex-row items-center justify-center text-white text-3xl">
+			<img 
+			src="/Cristian_Busto.webp" 
+			alt="Cristian Guzman" 
+			class="h-28 rounded-full shadow-lg bg-firstRed hover:scale-150 transition-transform duration-200"
+			>
+			<div class="mt-6 sm:mt-0 sm:ml-8 text-center sm:text-left">
+				<h1 class="text-4xl font-bold text-white">¡Que tal!</h1>
+				<h1 class="text-5xl font-bold text-white">Soy Cristian Guzman</h1>
+				<div class="flex flex-col md:lg:flex-row md:lg:gap-4 align-top items-center">
+					<p class="text-lg opacity-90 mt-1">Desarrollador Fullstack</p>
+					<a class="" href="https://www.linkedin.com/in/cristian-stiven-guzman-tovar-668655217/"><Badge>Disponible para trabajar</Badge></a>
+				</div>
+				<p class="text-2xl mt-4 opacity-80 max-w-lg">
+					Estudiante de Ingeniería de Sistemas en Proceso de Grado, Loco del Software Libre y Creador de Soluciones Tecnológicas.
+				</p>
+			</div>
+		</SectionContainer>
+		
+		<Header/>
+		
+		
+		
+		<SectionContainer id="experience" class="pt-16 ">
+			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
+				<Experience class=""></Experience>
+				Experiencia
+			</h2>
+			<ExperienceCard/>
+		</SectionContainer>
+		
+		<SectionContainer id="education">
+			<h2 class="text-2xl font-semibold mb-10 flex gap-x-3 items-center">
+				<Experience class=""></Experience>
+				Estudios
+			</h2>
+			<StudyCard/>
+		</SectionContainer>
+		
+		
+		<SectionContainer id="about_me" class=" mt-24 flex flex-col justify-center">
+			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
+				<Experience class=""></Experience>
+				Sobre mi
+			</h2>
+			<div class="flex flex-col-reverse md:lg:flex-row align-middle items-center gap-2">
+				<p class="max-w-xl text-pretty">
+					Soy un estudiante apasionado por el desarrollo y la enseñanza, comprometido con el aprendizaje continuo y la promoción del software libre. Actualmente lidero un subproyecto del grupo GLUD en la Universidad Distrital, donde diseño y enseño cursos enfocados en tecnologías como GNU/Linux, Bash, Docker, y terminal, además de desarrollar una plataforma educativa.
+					Tengo experiencia en la planificación de sistemas de información, análisis tecnológico, y en proyectos colaborativos de gran escala con metodologías ágiles como Scrum.
+					Mi objetivo es combinar conocimiento técnico y habilidades pedagógicas para crear soluciones innovadoras y accesibles que fomenten el desarrollo personal y profesional.
+				</p>
+				<img src="/CristianPortfolio.webp" alt="Cristian Guzman" class="bg-firstRed h-80 rounded-md shadow-lg">
+			</div>
+			
+		</SectionContainer>
+		
+		<ContactComponent/>
+		
+		<footer class="bg-firstRed p-4 text-center mt-80">
+			<p>
+				<img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="Creative Commons" class="inline-block h-6 w-6">
+				2024 Cristian Guzmán. Este trabajo está licenciado bajo una 
+				<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="text-black underline">
+					Licencia Creative Commons Atribución 4.0 Internacional.
+				</a>
+			</p>
+		</footer>
+		
+	</main>
+	
+</Layout>

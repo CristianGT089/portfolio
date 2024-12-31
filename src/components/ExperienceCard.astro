@@ -1,0 +1,40 @@
+---
+import ExperienceItem from './ExperienceItem.astro';
+
+
+const EXPERIENCE = [
+	{
+		title: 'Scripting Jr Executive',
+		company: 'Kantar Millward Brown',
+		init_date: 'Agosto 2023',
+		end_date: 'Septiembre 2024',
+		description: 'Desarrollo de scripts enfocados en la creación de encuestas para analizar datos y generar insights.',	
+	},
+	{
+		title: 'Instructor y Subdirector - Software Libre',
+		company: 'Grupo Libre Universidad Distrital',
+		init_date: 'Agosto 2024',
+		end_date: 'Actualidad',
+		description: 'Director de rama de docentes del grupo. Encargado de la página web enfocada en la enseñanza de tecnologías libres utilizando metodología FDD. Instrucción en software libre y promoción de la filosofía de código abierto.',
+		
+	},
+	{
+		title: 'Desarrollo Fullstack',
+		company: 'Independiente',
+		init_date: 'Mayo 2023',
+		end_date: 'Agosto 2023',
+		description: 'Creación de aplicativos para diferentes empresas',
+	}
+]
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+	{
+		EXPERIENCE.map(experience => (
+			<li class="mb-10 ms-4">
+				<ExperienceItem {...experience} />	
+			</li>
+		))
+	}            
+</ol>
+

@@ -1,4 +1,7 @@
 ---
+import '@fontsource-variable/fredoka';
+
+
 interface Props {
 	title: string;
 }
@@ -16,35 +19,31 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-firstLightGray dark:bg-firstDarkGray">
 		<slot />
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		color-scheme: light dark;
 	}
+
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
+		font-family: 'Fredoka Variable', system-ui, sans-serif;
+		scroll-behavior: smooth;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	body {
+		
+		display: flex;
+		justify-content: center;
+		min-height: 100vh;
 	}
+
+	@media (prefers-reduce-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
 </style>

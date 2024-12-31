@@ -1,0 +1,30 @@
+---
+import StudyItem from "./StudyItem.astro"
+
+
+const STUDY = [
+    {
+        title: 'Ingeniería de Sistemas',
+		company: 'Universidad Distrital Francisco José de Caldas',
+		init_date: 'Agosto 2019',
+		end_date: 'Actualidad',
+		description: 'En proceso de grado, realice multiples proyectos ensanchando conocimientos de programación y arquitectura de sistemas',	
+    },
+    {
+        title: 'Técnico de sistemas',
+		company: 'Servicio Nacional de Aprendizaje - SENA',
+		init_date: 'Febrero 2017',
+		end_date: 'Diciembre 2018',
+		description: 'Aprendí base de datos utilizando access y conocí las bases de la programación',	
+    }
+]
+---
+<div class="flex gap-5 justify-center flex-col md:lg:flex-row">
+    {
+        STUDY.map(study => (
+            <div class=" bg-firstLightGray border border-firstRed rounded-lg shadow dark:bg-firstDarkGray hover:bg-secondLightGray max-w-xl">
+            <StudyItem {...study} />
+        </div>
+    ))
+}
+<div/>
