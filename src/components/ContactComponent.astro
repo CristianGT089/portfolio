@@ -4,69 +4,47 @@ import GitHub from '../components/icons/GitHub.astro';
 import Mail from '../components/icons/Mail.astro';
 import LinkedIn from '../components/icons/LinkedIn.astro';
 ---
+<div id="relative-contact" class="bg-secondDarkGray relative py-44 w-full rounded-none flex flex-col items-center gap-4">
+  <h2 class="text-2xl font-bold text-firstRed">Contáctame</h2>
+  <div class="flex items-center gap-4">
+    <a href="mailto:cristiansgt089@gmail.com" class="text-firstRed"><Mail /></a>
+    <a href="https://github.com/CristianGT089" class="text-firstRed"><GitHub /></a>
+    <a href="https://www.linkedin.com/in/cristian-stiven-guzman-tovar-668655217/" class="text-firstRed"><LinkedIn/></a>
+  </div>
+</div>
 
-<div 
-  id="contact" 
-  class="transition-all duration-600 ease-in-out bg-white shadow-lg rounded-full p-2 flex items-center gap-4 fixed bottom-4 left-1/2 transform -translate-x-1/2"
-  data-fixed="true"
->
-  <h2 class="text-firstRed">¡Contactame!</h1>
-  <a href="mailto:cristiansgt089@gmail.com" class="text-firstRed"><Mail /></a>
-  <a href="https://github.com/CristianGT089" class="text-firstRed"><GitHub /></a>
-  <a href="https://www.linkedin.com/in/cristian-stiven-guzman-tovar-668655217/" class="text-firstRed"><LinkedIn /></a>
+<div id="fixed-contact" class="fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-2 bg-secondDarkGray shadow-lg rounded-full p-2">
+  <div class="flex items-center gap-4">
+    <a href="mailto:cristiansgt089@gmail.com" class="text-firstRed"><Mail /></a>
+    <a href="https://github.com/CristianGT089" class="text-firstRed"><GitHub /></a>
+    <a href="https://www.linkedin.com/in/cristian-stiven-guzman-tovar-668655217/" class="text-firstRed"><LinkedIn/></a>
+  </div>
 </div>
 
 <script>
   if (typeof window !== "undefined") {
     document.addEventListener('DOMContentLoaded', () => {
-      const contactElement = document.getElementById('contact');
-      const footer = document.querySelector('footer');
+      const relativeContact = document.getElementById('relative-contact');
+      const fixedContact = document.getElementById('fixed-contact');
 
-      // Verifica que los elementos existan antes de continuar
-      if (!contactElement || !footer) return;
+      // Verifica que ambos elementos existen
+      if (!relativeContact || !fixedContact) return;
 
-      // Intersection Observer para observar el footer
+      // Intersection Observer para observar el elemento relativo
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            // Si el footer está visible, cambia a posición absoluta
-            contactElement.setAttribute('data-fixed', 'false');
-            contactElement.setAttribute('data-absolute', 'true');
+            // Si el relativo empieza a aparecer, esconde el fijo
+            fixedContact.classList.add('hidden');
           } else {
-            // Si el footer no está visible, vuelve a posición fija
-            contactElement.setAttribute('data-absolute', 'false');
-            contactElement.setAttribute('data-fixed', 'true');
+            // Si el relativo no está visible, muestra el fijo
+            fixedContact.classList.remove('hidden');
           }
         },
-        { root: null, threshold: 1.0 }
+        { rootMargin: "10px" } // Define un margen de 10px para activar la detección antes
       );
 
-      observer.observe(footer);
+      observer.observe(relativeContact);
     });
   }
 </script>
-
-<style>
-  /* Estilos para las posiciones fija y absoluta */
-  #contact[data-fixed="true"] {
-    position: fixed;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  #contact[data-absolute="true"] {
-    
-    margin-bottom: 50px;
-    height: 30vh;
-    width: ;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-  }
-
-  #contact[data-absolute="true"] > h1 {
-    display: none;
-  }
-</style>

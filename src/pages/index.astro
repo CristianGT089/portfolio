@@ -7,6 +7,7 @@ import Badge from '../components/Badge.astro';
 import SectionContainer from '../components/SectionContainer.astro';
 import Experience from '../components/icons/Experience.astro'
 import StudyCard from '../components/StudyCard.astro';
+import Footer from '../components/Footer.astro';
 
 ---
 
@@ -39,8 +40,6 @@ import StudyCard from '../components/StudyCard.astro';
 		
 		<Header/>
 		
-		
-		
 		<SectionContainer id="experience" class="pt-16 ">
 			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
 				<Experience class=""></Experience>
@@ -58,13 +57,13 @@ import StudyCard from '../components/StudyCard.astro';
 		</SectionContainer>
 		
 		
-		<SectionContainer id="about_me" class=" mt-24 flex flex-col justify-center">
+		<SectionContainer id="about_me" class=" my-24 flex flex-col justify-center items-center">
 			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
 				<Experience class=""></Experience>
 				Sobre mi
 			</h2>
 			<div class="flex flex-col-reverse md:lg:flex-row align-middle items-center gap-2">
-				<p class="max-w-xl text-pretty">
+				<p class="max-w-lg text-pretty">
 					Soy un estudiante apasionado por el desarrollo y la enseñanza, comprometido con el aprendizaje continuo y la promoción del software libre. Actualmente lidero un subproyecto del grupo GLUD en la Universidad Distrital, donde diseño y enseño cursos enfocados en tecnologías como GNU/Linux, Bash, Docker, y terminal, además de desarrollar una plataforma educativa.
 					Tengo experiencia en la planificación de sistemas de información, análisis tecnológico, y en proyectos colaborativos de gran escala con metodologías ágiles como Scrum.
 					Mi objetivo es combinar conocimiento técnico y habilidades pedagógicas para crear soluciones innovadoras y accesibles que fomenten el desarrollo personal y profesional.
@@ -75,16 +74,8 @@ import StudyCard from '../components/StudyCard.astro';
 		</SectionContainer>
 		
 		<ContactComponent/>
-		
-		<footer class="bg-firstRed p-4 text-center mt-80">
-			<p>
-				<img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="Creative Commons" class="inline-block h-6 w-6">
-				2024 Cristian Guzmán. Este trabajo está licenciado bajo una 
-				<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="text-black underline">
-					Licencia Creative Commons Atribución 4.0 Internacional.
-				</a>
-			</p>
-		</footer>
+
+		<Footer/>
 		
 	</main>
 	

@@ -20,6 +20,15 @@ export default {
 
 				'accent-dark-gradient': 'linear-gradient(0deg, #252c35 40%, #1c1d1c 60%)'
 			},
+			keyframes: {
+				fall: {
+				  "0%": { transform: "translateY(0)", opacity: "1" },
+				  "100%": { transform: "translateY(100vh)", opacity: "0" },
+				},
+			},
+				animation: {
+				fall: "fall linear infinite",
+			},
 		},
 	},
 	plugins: [],

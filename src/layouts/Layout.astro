@@ -19,8 +19,9 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-firstLightGray dark:bg-firstDarkGray">
+	<body id="stars">
 		<slot />
+		<div  class=""></div>
 	</body>
 </html>
 <style is:global>
@@ -34,7 +35,6 @@ const { title } = Astro.props;
 	}
 
 	body {
-		
 		display: flex;
 		justify-content: center;
 		min-height: 100vh;
@@ -47,3 +47,33 @@ const { title } = Astro.props;
 	}
 
 </style>
+<!--<script>
+	const starContainer = document.getElementById("stars");
+
+	// Crear estrellas con animación
+	const createStar = () => {
+		const star = document.createElement("div");
+		const size = Math.random() * 2 + 1; // Tamaño aleatorio entre 1px y 3px
+		const positionX = Math.random() * window.innerWidth; // Posición horizontal aleatoria
+		const duration = Math.random() * 3 + 30; // Duración aleatoria entre 2s y 5s
+		const delay = Math.random() * 3; // Retraso aleatorio entre 0s y 3s
+
+		// Estilo de la estrella
+		star.className = `absolute bg-white rounded-lg animate-[fall]`; // Usar la animación personalizada
+		star.style.width = `${size}px`;
+		star.style.height = `${size}px`;
+		star.style.left = `${positionX}px`;
+		star.style.animationDuration = `${duration}s`;
+		star.style.animationDelay = `${delay}s`;
+
+		// Agregar la estrella al contenedor
+		if (starContainer) starContainer.appendChild(star);
+
+		// Eliminar estrella al terminar la animación
+		setTimeout(() => star.remove(), (duration + delay) * 1000);
+	};
+
+	// Crear estrellas constantemente
+	setInterval(() => createStar(), 100);
+
+</script>-->
