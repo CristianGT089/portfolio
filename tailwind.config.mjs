@@ -25,7 +25,7 @@ export default {
 				  "100%": { transform: "translateY(100vh)", opacity: "0" },
 				},
 			},
-				animation: {
+			animation: {
 				fall: "fall linear infinite",
 			},
 		},
