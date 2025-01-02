@@ -13,9 +13,9 @@ const { title, company, init_date, end_date, description} = Astro.props;
 <div class="p-5">
     
     <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{title}</h5>
-    <h4>{company}</h4>
-    <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{init_date} - {end_date}</time>
+    <h4 class="text-firstRed">{company}</h4>
+    <time class="mb-1 text-sm font-normal leading-none text-gray-500">{init_date} - {end_date}</time>
     
-    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-pretty max-w-lg">{description}</p>
+    <p class="mb-3 font-normal text-gray-400 text-pretty max-w-lg">{description}</p>
     
 </div>
