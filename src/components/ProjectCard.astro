@@ -1,16 +1,16 @@
 ---
 const PROJECTS = [
     {
-        title: 'Página Web GLUD, Curso GNUBIES',
-        description: 'Desarrollo y liderazgo en la creación de la página web para el grupo GLUD (GNU/Linux Universidad Distrital), que sirve como plataforma educativa para el curso GNUBIES. En este proyecto, mi rol fue dirigir la implementación utilizando la metodología FDD (Feature Driven Development), coordinando el trabajo de los desarrolladores y asegurando la calidad en el desarrollo. Además, trabajé en la creación de la arquitectura del backend con FastAPI y colaboré en el diseño del frontend utilizando Astro, mejorando la accesibilidad y experiencia del usuario.',
+        title: 'GLUD Website, GNUBIES Course',
+        description: 'Development and leadership in creating the website for the GLUD group (GNU/Linux Universidad Distrital), which serves as an educational platform for the GNUBIES course. In this project, my role was to direct the implementation using the FDD (Feature Driven Development) methodology, coordinating developers\' work and ensuring development quality. Additionally, I worked on creating the backend architecture with FastAPI and collaborated on frontend design using Astro, improving accessibility and user experience.',
         link: 'https://glud.org/',
         github: 'https://gitlab.com/GLUD/glud-page-2.0',
         image: 'glud.png',
         tags: ['Astro', 'FastApi']
     },
     {
-        title: 'FourParks - Agenda de Estacionamiento',
-        description: 'FourParks es una plataforma para la reserva de plazas de parqueadero. Me enfoqué principalmente en el desarrollo del backend utilizando Java y SpringBoot, creando una arquitectura robusta para gestionar las reservas, usuarios y la interacción con las bases de datos. También colaboré en el desarrollo del frontend, asegurando una experiencia de usuario fluida y eficiente. Además, lideré el despliegue del sistema en un entorno de producción, asegurando que la aplicación fuera accesible y estable para los usuarios finales.',
+        title: 'FourParks - Parking Management System',
+        description: 'FourParks is a platform for parking space reservations. I primarily focused on backend development using Java and SpringBoot, creating a robust architecture to manage reservations, users, and database interactions. I also collaborated on frontend development, ensuring a smooth and efficient user experience. Additionally, I led the system deployment in a production environment, ensuring the application was accessible and stable for end users.',
         link: 'https://fourparks.site/',
         github: 'https://github.com/CristianGT089/four-parks',
         image: 'fourparks.png',
@@ -19,7 +19,6 @@ const PROJECTS = [
 ]
 
 ---
-
 
 <div class="flex flex-col gap-4">
     {
@@ -30,7 +29,7 @@ const PROJECTS = [
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{title}</h5>
                     <p class="mb-3 font-normal text-white opacity-70 text-pretty max-w-xl">{description}</p>
                     
-                    <ul class="flex text-white gap-2"> <p class="text-firstRed">Herramientas:</p> 
+                    <ul class="flex text-white gap-2"> <p class="text-firstRed">Tools:</p> 
                         {
                             tags.map(tag => (
                                 <li>{tag}</li>

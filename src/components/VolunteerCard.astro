@@ -1,0 +1,37 @@
+---
+import ExperienceItem from './ExperienceItem.astro';
+
+const VOLUNTEER = [
+    {
+        title: 'Director - GNU/Linux Group',
+        company: 'Universidad Distrital',
+        init_date: 'January 2025',
+        end_date: 'Present',
+        description: 'Leading a community of 200+ active members in open source technologies. Coordinating 30+ collaborators in development and education projects. Implemented a mentoring program that has benefited 50+ students.',
+    },
+    {
+        title: 'Volunteer Organizer',
+        company: 'FLISoL Bogotá',
+        init_date: 'April 2025',
+        end_date: 'May 2025',
+        description: 'Coordinated the largest free software event in Bogotá with 600+ attendees. Managed logistics and scheduling for 27 technical talks with international speakers. Increased student participation by 40% compared to the previous year.',
+    },
+    {
+        title: 'Teaching Branch Leader',
+        company: 'GNU/Linux Group - Universidad Distrital',
+        init_date: 'January 2024',
+        end_date: 'January 2025',
+        description: 'Designed and implemented a teaching plan focused on free software, training over 50 students in GNU/Linux, Bash, Docker, and terminal. Led a team of 10+ developers in creating an interactive educational platform to enhance learning experiences.',
+    }
+];
+---
+
+<ol class="relative border-s border-gray-700">
+    {
+        VOLUNTEER.map(volunteer => (
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...volunteer} />    
+            </li>
+        ))
+    }            
+</ol> 

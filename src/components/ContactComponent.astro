@@ -1,11 +1,11 @@
 ---
-// Importa los iconos
+// Import icons
 import GitHub from '../components/icons/GitHub.astro';
 import Mail from '../components/icons/Mail.astro';
 import LinkedIn from '../components/icons/LinkedIn.astro';
 ---
 <div id="relative-contact" class="bg-secondDarkGray relative py-44 w-full rounded-none flex flex-col items-center gap-4">
-  <h2 class="text-4xl font-bold text-firstRed">Contáctame</h2>
+  <h2 class="text-4xl font-bold text-firstRed">Contact Me</h2>
   <div class="flex items-center gap-4">
     <a href="mailto:cristiansgt089@gmail.com" class="text-firstRed size-12"><Mail /></a>
     <a href="https://www.linkedin.com/in/cristian-stiven-guzman-tovar-668655217/" class="text-firstRed size-12"><LinkedIn/></a>
@@ -27,21 +27,21 @@ import LinkedIn from '../components/icons/LinkedIn.astro';
       const relativeContact = document.getElementById('relative-contact');
       const fixedContact = document.getElementById('fixed-contact');
 
-      // Verifica que ambos elementos existen
+      // Check if both elements exist
       if (!relativeContact || !fixedContact) return;
 
-      // Intersection Observer para observar el elemento relativo
+      // Intersection Observer to watch the relative element
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            // Si el relativo empieza a aparecer, esconde el fijo
+            // If relative starts appearing, hide the fixed one
             fixedContact.classList.add('hidden');
           } else {
-            // Si el relativo no está visible, muestra el fijo
+            // If relative is not visible, show the fixed one
             fixedContact.classList.remove('hidden');
           }
         },
-        { rootMargin: "10px" } // Define un margen de 10px para activar la detección antes
+        { rootMargin: "10px" } // Define a 10px margin to trigger detection earlier
       );
 
       observer.observe(relativeContact);

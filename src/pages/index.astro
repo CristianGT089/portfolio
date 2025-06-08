@@ -12,10 +12,12 @@ import Footer from '../components/Footer.astro';
 import Study from '../components/icons/Study.astro';
 import AboutMe from '../components/icons/AboutMe.astro';
 import Projects from '../components/icons/Projects.astro';
+import Volunteer from '../components/icons/Volunteer.astro';
+import VolunteerCard from '../components/VolunteerCard.astro';
 
 ---
 
-<Layout title="Cristian Guzman - Desarrollador FullStack" >
+<Layout title="Cristian Guzman - FullStack Developer" >
 		
 	<main class="
 		bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,#1c1d1c,rgba(255,255,255,0))] 
@@ -29,14 +31,14 @@ import Projects from '../components/icons/Projects.astro';
 			class="h-28 rounded-full shadow-lg bg-firstRed hover:scale-150 transition-transform duration-200"
 			>
 			<div class="mt-6 sm:mt-0 sm:ml-8 text-center sm:text-left">
-				<h1 class="text-4xl font-bold text-white">¡Que tal!</h1>
-				<h1 class="text-5xl font-bold text-white">Soy Cristian Guzman</h1>
+				<h1 class="text-4xl font-bold text-white">Hi there!</h1>
+				<h1 class="text-5xl font-bold text-white">I'm Cristian Guzman</h1>
 				<div class="flex flex-col md:lg:flex-row md:lg:gap-4 align-top items-center">
-					<p class="text-lg opacity-90 mt-1">Desarrollador Fullstack</p>
-					<a class="" href="https://www.linkedin.com/in/cristian-stiven-guzman-tovar-668655217/"><Badge>Disponible para trabajar</Badge></a>
+					<p class="text-lg opacity-90 mt-1">FullStack Developer</p>
+					<a class="" href="https://www.linkedin.com/in/cristian-stiven-guzman-tovar-668655217/"><Badge>Open to work</Badge></a>
 				</div>
 				<p class="text-2xl mt-4 opacity-80 max-w-lg">
-					Estudiante de Ingeniería de Sistemas en Proceso de Grado, Loco del Software Libre y Creador de Soluciones Tecnológicas.
+					Systems Engineering Student in Graduation Process, Free Software Enthusiast, and Technology Solutions Creator.
 				</p>
 			</div>
 		</SectionContainer>
@@ -46,15 +48,23 @@ import Projects from '../components/icons/Projects.astro';
 		<SectionContainer id="experience" class="pt-16 ">
 			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center text-white">
 				<Experience class=""></Experience>
-				Experiencia
+				Experience
 			</h2>
 			<ExperienceCard/>
+		</SectionContainer>
+		
+		<SectionContainer id="volunteer" class="pt-16">
+			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center text-white">
+				<Volunteer class=""></Volunteer>
+				Volunteer Experience
+			</h2>
+			<VolunteerCard/>
 		</SectionContainer>
 		
 		<SectionContainer id="education">
 			<h2 class="text-2xl font-semibold mb-10 flex gap-x-3  text-white">
 				<Study class=""></Study>
-				Estudios
+				Education
 			</h2>
 			<StudyCard/>
 		</SectionContainer>
@@ -62,7 +72,7 @@ import Projects from '../components/icons/Projects.astro';
 		<SectionContainer id="projects" class="pt-6">
 			<h2 class="text-2xl font-semibold my-10 flex gap-x-3  text-white">
 				<Projects class=""></Projects>
-				Proyectos
+				Projects
 			</h2>
 			<ProjectCard class=""/>
 		</SectionContainer>
@@ -70,13 +80,13 @@ import Projects from '../components/icons/Projects.astro';
 		<SectionContainer id="about_me" class="pt-12 my-16 flex flex-col justify-center">
 			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center text-white">
 				<AboutMe class=""></AboutMe>
-				Sobre mi
+				About me
 			</h2>
 			<div class="flex flex-col-reverse md:lg:flex-row items-center gap-2">
 				<p class="max-w-2xl text-pretty text-white">
-					Soy un estudiante apasionado por el desarrollo y la enseñanza, comprometido con el aprendizaje continuo y la promoción del software libre. Actualmente lidero un subproyecto del grupo GLUD en la Universidad Distrital, donde diseño y enseño cursos enfocados en tecnologías como GNU/Linux, Bash, Docker, y terminal, además de desarrollar una plataforma educativa.
-					Tengo experiencia en la planificación de sistemas de información, análisis tecnológico.
-					Mi objetivo es combinar conocimiento técnico y habilidades pedagógicas para crear soluciones innovadoras y accesibles que fomenten el desarrollo personal y profesional.
+					I am a student passionate about development and teaching, committed to continuous learning and the promotion of free software. Currently, I lead a subproject at the GLUD group at Universidad Distrital, where I design and teach courses focused on technologies like GNU/Linux, Bash, Docker, and terminal, while also developing an educational platform.
+					I have experience in information systems planning and technological analysis.
+					My goal is to combine technical knowledge and pedagogical skills to create innovative and accessible solutions that foster personal and professional development.
 				</p>
 				<img src="/CristianPortfolio_1.webp" alt="Cristian Guzman" class="bg-firstRed h-64 rounded-md shadow-lg">
 			</div>
