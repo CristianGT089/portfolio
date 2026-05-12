@@ -14,6 +14,8 @@ import AboutMe from '../components/icons/AboutMe.astro';
 import Projects from '../components/icons/Projects.astro';
 import Volunteer from '../components/icons/Volunteer.astro';
 import VolunteerCard from '../components/VolunteerCard.astro';
+import Award from '../components/icons/Award.astro';
+import AwardCard from '../components/AwardCard.astro';
 
 ---
 
@@ -53,6 +55,14 @@ import VolunteerCard from '../components/VolunteerCard.astro';
 			<ExperienceCard/>
 		</SectionContainer>
 		
+		<SectionContainer id="awards" class="pt-16">
+			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center text-white">
+				<Award class=""></Award>
+				Awards & Achievements
+			</h2>
+			<AwardCard/>
+		</SectionContainer>
+
 		<SectionContainer id="volunteer" class="pt-16">
 			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center text-white">
 				<Volunteer class=""></Volunteer>

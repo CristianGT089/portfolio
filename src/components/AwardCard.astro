@@ -1,0 +1,42 @@
+---
+const AWARDS = [
+    {
+        title: '1st Place Bogotá / Top 3 Nationally',
+        event: 'Hackathon Colombia 5.0',
+        organizers: 'MinTIC · Corferias · APPS.CO',
+        date: 'May 2026',
+        description: "Awarded 1st place in Bogotá and Top 3 nationally at Colombia's largest government-backed hackathon. Built a working prototype in 48 hours alongside a team from Grupo GNU/Linux Universidad Distrital (GLUD), competing against teams from across the country.",
+        tags: ['Teamwork', 'Rapid Prototyping', 'Open Source'],
+    },
+    {
+        title: 'Outstanding Student Award',
+        event: 'Universidad Distrital Francisco José de Caldas',
+        organizers: 'Work group recognition',
+        date: '2024',
+        description: 'Recognized as an outstanding student by the academic work group for contributions to collaborative projects and leadership within the university community.',
+        tags: ['Leadership', 'Academic Excellence'],
+    },
+];
+---
+
+<div class="flex flex-col gap-4">
+    {
+        AWARDS.map(({ title, event, organizers, date, description, tags }) => (
+            <article class="flex flex-col rounded-lg shadow md:max-w-4xl border border-firstRed bg-secondDarkGray hover:bg-firstDarkGray p-5">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-1 mb-2">
+                    <h5 class="text-xl font-bold tracking-tight text-white">{title}</h5>
+                    <time class="text-sm text-gray-400">{date}</time>
+                </div>
+                <h6 class="text-firstRed font-semibold mb-1">{event}</h6>
+                <p class="text-xs text-gray-500 mb-3">{organizers}</p>
+                <p class="text-white opacity-70 text-pretty mb-3">{description}</p>
+                <ul class="flex flex-wrap gap-2 text-white text-sm">
+                    <span class="text-firstRed">Highlights:</span>
+                    {tags.map((tag) => (
+                        <li class="opacity-80">{tag}</li>
+                    ))}
+                </ul>
+            </article>
+        ))
+    }
+</div>
