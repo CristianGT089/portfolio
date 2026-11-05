@@ -13,7 +13,6 @@ export const PROFILE = {
 	timezone: 'America/Bogota',
 	email: 'cristiansgt089@gmail.com',
 	languages: 'Spanish (native) · English (B2)',
-	initials: 'CG',
 	linkedin: 'https://www.linkedin.com/in/cristian-stiven-guzman-tovar-668655217/',
 	github: 'https://github.com/CristianGT089',
 };

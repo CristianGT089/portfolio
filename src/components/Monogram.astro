@@ -1,18 +1,13 @@
 ---
-// Monograma de las propuestas: círculo con las iniciales.
-import { PROFILE } from '../data/profile';
+// Marca personal: la «C» geométrica con el punto carmesí (la misma del favicon).
 interface Props {
 	class?: string;
-	tone?: 'brand' | 'ink';
 }
-const { class: className = 'size-9 text-sm', tone = 'brand' } = Astro.props;
+const { class: className = 'size-9' } = Astro.props;
 ---
 
-<span
-	class:list={[
-		'inline-grid shrink-0 place-items-center rounded-full font-bold tracking-[-0.02em] text-white',
-		tone === 'brand' ? 'bg-brand' : 'bg-[#2E3338] ring-1 ring-white/10',
-		className,
-	]}
-	aria-hidden="true">{PROFILE.initials}</span
->
+<svg class:list={['shrink-0', className]} viewBox="0 0 64 64" aria-hidden="true">
+	<rect width="64" height="64" rx="15" fill="#2E3338"></rect>
+	<path d="M44.7 19.3A18 18 0 1 0 44.7 44.7" fill="none" stroke="#fff" stroke-width="9.5" stroke-linecap="round"></path>
+	<circle cx="46.5" cy="32" r="7.5" fill="#A4161A"></circle>
+</svg>
