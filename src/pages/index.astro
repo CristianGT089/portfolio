@@ -1,112 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import ExperienceCard from '../components/ExperienceCard.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import ContactComponent from '../components/ContactComponent.astro';
-import Badge from '../components/Badge.astro';
-import SectionContainer from '../components/SectionContainer.astro';
-import Experience from '../components/icons/Experience.astro'
-import StudyCard from '../components/StudyCard.astro';
-import Footer from '../components/Footer.astro';
-import Study from '../components/icons/Study.astro';
-import AboutMe from '../components/icons/AboutMe.astro';
-import Projects from '../components/icons/Projects.astro';
-import Volunteer from '../components/icons/Volunteer.astro';
-import VolunteerCard from '../components/VolunteerCard.astro';
-import Award from '../components/icons/Award.astro';
-import AwardCard from '../components/AwardCard.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import VigiaNova from '../components/VigiaNova.astro';
+import Experience from '../components/Experience.astro';
+import Recognition from '../components/Recognition.astro';
+import Community from '../components/Community.astro';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.astro';
+import { PROFILE, CURRENT_ROLE, CURRENT_COMPANY } from '../data/profile';
 
+const title = `${PROFILE.name} — ${CURRENT_ROLE} at ${CURRENT_COMPANY}`;
+const description = `${PROFILE.name}, systems engineer in Bogotá. ${CURRENT_ROLE} at ${CURRENT_COMPANY}: building a multi-tenant accounting and tax-control SaaS with FastAPI, Next.js and PostgreSQL. Previously backend and AI workflows at Evaluar.com.`;
 ---
 
-<Layout title="Cristian Guzman - FullStack Developer" >
-		
-	<main class="
-		bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,#1c1d1c,rgba(255,255,255,0))] 
-		shadow-2xl shadow-slate-50 w-[1120px]"
-	>
-
-		<SectionContainer id="init" class="pt-32 md:lg:pt-60 pb-32 md:lg:pb-48 flex flex-col md:lg:flex-row items-center justify-center text-white text-3xl">
-			<img
-			src="/Cristian_Busto.webp"
-			alt="Cristian Guzman"
-			class="h-28 rounded-full shadow-lg bg-firstRed ring-2 ring-firstRed/40 hover:ring-firstRed hover:scale-110 transition-all duration-300"
-			>
-			<div class="mt-6 sm:mt-0 sm:ml-8 text-center sm:text-left">
-				<h1 class="text-4xl font-bold text-white">Hi there!</h1>
-				<h1 class="text-5xl font-bold text-white">I'm Cristian Guzman</h1>
-				<div class="flex flex-col md:lg:flex-row md:lg:gap-4 align-top items-center">
-					<p class="text-lg opacity-90 mt-1">FullStack Developer</p>
-					<a class="" href="https://www.linkedin.com/in/cristian-stiven-guzman-tovar-668655217/"><Badge>Open to work</Badge></a>
-				</div>
-				<p class="text-2xl mt-4 opacity-80 max-w-lg">
-					Systems Engineer, Free Software Enthusiast, and Technology Solutions Creator.
-				</p>
-			</div>
-		</SectionContainer>
-		
-		<Header/>
-		
-		<SectionContainer id="experience" class="pt-16 ">
-			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center text-white">
-				<Experience class=""></Experience>
-				Experience
-			</h2>
-			<ExperienceCard/>
-		</SectionContainer>
-		
-		<SectionContainer id="awards" class="pt-16">
-			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center text-white">
-				<Award class=""></Award>
-				Awards & Achievements
-			</h2>
-			<AwardCard/>
-		</SectionContainer>
-
-		<SectionContainer id="volunteer" class="pt-16">
-			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center text-white">
-				<Volunteer class=""></Volunteer>
-				Volunteer Experience
-			</h2>
-			<VolunteerCard/>
-		</SectionContainer>
-		
-		<SectionContainer id="education">
-			<h2 class="text-2xl font-semibold mb-10 flex gap-x-3  text-white">
-				<Study class=""></Study>
-				Education
-			</h2>
-			<StudyCard/>
-		</SectionContainer>
-		
-		<SectionContainer id="projects" class="pt-6">
-			<h2 class="text-2xl font-semibold my-10 flex gap-x-3  text-white">
-				<Projects class=""></Projects>
-				Projects
-			</h2>
-			<ProjectCard class=""/>
-		</SectionContainer>
-
-		<SectionContainer id="about_me" class="pt-12 my-16 flex flex-col justify-center">
-			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center text-white">
-				<AboutMe class=""></AboutMe>
-				About me
-			</h2>
-			<div class="flex flex-col-reverse md:lg:flex-row items-center gap-2">
-				<p class="max-w-2xl text-pretty text-white">
-					I am a Systems Engineer passionate about backend development, AI workflow orchestration, and free software. I currently lead the GLUD group at Universidad Distrital — a 200+ member open-source community — and contribute as a volunteer to Colmena DAO, deploying FLOSS infrastructure for beekeepers across Latin America.
-					My experience spans enterprise SaaS backend systems, AI-powered automation with LangGraph, and teaching technical skills to 50+ students.
-					My goal is to combine engineering, pedagogy, and digital sovereignty to build scalable solutions that foster personal, professional, and community development.
-				</p>
-				<img src="/CristianPortfolio_1.webp" alt="Cristian Guzman" class="bg-firstRed h-64 rounded-md shadow-lg">
-			</div>
-			
-		</SectionContainer>
-		
-		<ContactComponent/>
-
-		<Footer/>
-		
+<Layout title={title} description={description}>
+	<Nav />
+	<main id="main">
+		<Hero />
+		<VigiaNova />
+		<Experience />
+		<Recognition />
+		<Community />
+		<About />
+		<Contact />
 	</main>
-	
 </Layout>

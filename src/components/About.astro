@@ -1,0 +1,66 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { EDUCATION, TOOLBOX, PROFILE } from '../data/profile';
+---
+
+<section id="about" class="mx-auto max-w-page px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+	<SectionHeading index="05" title="About" />
+
+	<div class="grid gap-12 lg:grid-cols-12 lg:gap-12">
+		<div class="lg:col-span-6" data-reveal>
+			<p class="text-pretty text-[1.5rem] font-semibold leading-snug md:text-[1.75rem]">
+				I like owning a problem from the data model to the screen a person actually uses —
+				<span class="text-accent">and then keeping it running.</span>
+			</p>
+			<div class="mt-6 space-y-4 text-pretty text-lg leading-relaxed text-muted">
+				<p>
+					My background is backend: Java and Spring Boot first, then Python, FastAPI and AI workflows with
+					LangGraph and the Claude API. Today that means designing systems small teams can depend on — with tests,
+					sensible infrastructure and releases nobody is afraid of.
+				</p>
+				<p>
+					Outside work I lead Universidad Distrital’s GNU/Linux group and volunteer with Colmena DAO. I care
+					about pedagogy and digital sovereignty, and about leaving codebases easier to understand than I found them.
+				</p>
+			</div>
+		</div>
+
+		<div class="space-y-10 lg:col-span-6" data-reveal style="--delay: 80ms">
+			<div>
+				<h3 class="text-xl font-bold text-accent">Toolbox</h3>
+				<table class="mt-3 w-full text-left">
+					<tbody>
+						{
+							TOOLBOX.map(({ group, items }) => (
+								<tr class="border-b border-line align-top">
+									<th scope="row" class="w-32 py-3 pr-4 text-sm font-bold uppercase tracking-[0.06em] text-muted">{group}</th>
+									<td class="py-3">{items.join(', ')}</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h3 class="text-xl font-bold text-accent">Education</h3>
+				<ul class="mt-3">
+					{
+						EDUCATION.map(({ period, title, school }) => (
+							<li class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-line py-3">
+								<span class="text-muted tabular-nums">{period}</span>
+								<span>
+									<span class="font-semibold">{title}</span>
+									<span class="block text-muted">{school}</span>
+								</span>
+							</li>
+						))
+					}
+					<li class="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-line py-3">
+						<span class="text-muted">Languages</span>
+						<span class="font-semibold">{PROFILE.languages}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>

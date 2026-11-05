@@ -1,0 +1,18 @@
+---
+// Monograma de las propuestas: círculo con las iniciales.
+import { PROFILE } from '../data/profile';
+interface Props {
+	class?: string;
+	tone?: 'brand' | 'ink';
+}
+const { class: className = 'size-9 text-sm', tone = 'brand' } = Astro.props;
+---
+
+<span
+	class:list={[
+		'inline-grid shrink-0 place-items-center rounded-full font-bold tracking-[-0.02em] text-white',
+		tone === 'brand' ? 'bg-brand' : 'bg-[#2E3338] ring-1 ring-white/10',
+		className,
+	]}
+	aria-hidden="true">{PROFILE.initials}</span
+>

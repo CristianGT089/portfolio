@@ -1,0 +1,44 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { AWARDS } from '../data/profile';
+
+const [featured, ...rest] = AWARDS;
+---
+
+<section id="recognition" class="mx-auto max-w-page px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+	<SectionHeading index="03" title="Recognition" />
+
+	<article class="grid overflow-hidden rounded-3xl border border-line md:grid-cols-2" data-reveal>
+		{featured.image && (
+			<div class="relative min-h-[14rem] overflow-hidden">
+				<img
+					src={featured.image}
+					alt={`Team on stage at ${featured.title}`}
+					width="1080"
+					height="720"
+					loading="lazy"
+					decoding="async"
+					class="absolute inset-0 size-full object-cover"
+				/>
+			</div>
+		)}
+		<div class="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+			<p class="text-sm font-bold uppercase tracking-[0.08em] text-accent">{featured.rank}</p>
+			<h3 class="mt-2 text-[1.75rem] font-bold leading-tight">{featured.title}</h3>
+			<p class="mt-1 text-muted">{featured.organizers} · {featured.date}</p>
+			<p class="mt-4 text-pretty leading-relaxed">{featured.description}</p>
+		</div>
+	</article>
+
+	{
+		rest.map(({ rank, title, organizers, date, description }) => (
+			<aside class="mt-4 rounded-2xl bg-soft p-6 sm:p-8" data-reveal>
+				<p class="font-bold text-accent">{rank}</p>
+				<p class="mt-1 text-lg font-semibold">
+					{title} <span class="font-normal text-muted">· {organizers}, {date}</span>
+				</p>
+				<p class="mt-2 text-pretty leading-relaxed text-muted">{description}</p>
+			</aside>
+		))
+	}
+</section>

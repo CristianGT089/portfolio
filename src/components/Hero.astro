@@ -1,0 +1,174 @@
+---
+import Icon from './Icon.astro';
+import { PROFILE, CURRENT_ROLE, CURRENT_COMPANY } from '../data/profile';
+
+// Como el bloque «Preparado para / por» de la portada de las propuestas
+const FACTS = [
+	{ label: 'Currently', value: `${CURRENT_ROLE}, ${CURRENT_COMPANY}`, href: '#now' },
+	{ label: 'Previously', value: 'Backend Developer, Evaluar.com', href: '#experience' },
+	{ label: 'Community', value: 'Director, GNU/Linux Group UD', href: '#community' },
+];
+---
+
+<section id="top" class="relative isolate overflow-x-clip">
+	<!-- Formas de la portada: círculo gris abajo a la izquierda -->
+	<span
+		class="pointer-events-none absolute -z-10 aspect-square rounded-full bg-soft"
+		style="width: clamp(18rem, 40vw, 38rem); left: clamp(-14rem, -14vw, -7rem); bottom: 0;"
+		aria-hidden="true"></span>
+
+	<div class="hero-inner mx-auto max-w-page px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
+		<div class="hero-grid">
+			<div class="[grid-area:head] self-end">
+				<p class="text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-accent" data-reveal>
+					{CURRENT_ROLE} · {CURRENT_COMPANY}
+				</p>
+
+				<h1
+					class="mt-4 font-bold leading-[0.95] tracking-[-0.035em]"
+					style="font-size: clamp(2.25rem, min(11vw, 11svh), 6rem); --delay: 60ms"
+					data-reveal
+				>
+					Cristian<br />Guzmán
+				</h1>
+			</div>
+
+			<div class="[grid-area:body] self-start">
+				<p
+					class="hero-lead max-w-xl text-pretty leading-snug text-muted"
+					style="font-size: clamp(1.125rem, 1.75vw, 1.5rem); --delay: 120ms"
+					data-reveal
+				>
+					Systems engineer in Bogotá. I build software end to end — <span class="font-semibold text-ink">from the database schema to the deploy</span> — and lead technology at
+					<a href="#now" class="link">{CURRENT_COMPANY}</a>.
+				</p>
+
+				<div class="hero-cta flex flex-wrap items-center gap-3" data-reveal style="--delay: 180ms">
+					<a
+						href="#now"
+						class="group inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-[0.9375rem] font-semibold text-white transition-colors hover:bg-brand-deep"
+					>
+						See what I’m building
+						<Icon name="arrow-down" class="size-4 transition-transform group-hover:translate-y-0.5" />
+					</a>
+					<a
+						href={`mailto:${PROFILE.email}`}
+						class="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-5 py-3 text-[0.9375rem] font-semibold transition-colors hover:border-ink/40"
+					>
+						<Icon name="mail" class="size-4" />
+						Email me
+					</a>
+					<span class="flex items-center gap-0.5 text-muted">
+						<a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer" class="grid size-11 place-items-center rounded-full transition-colors hover:bg-soft hover:text-ink" aria-label="LinkedIn">
+							<Icon name="linkedin" class="size-5" />
+						</a>
+						<a href={PROFILE.github} target="_blank" rel="noopener noreferrer" class="grid size-11 place-items-center rounded-full transition-colors hover:bg-soft hover:text-ink" aria-label="GitHub">
+							<Icon name="github" class="size-5" />
+						</a>
+					</span>
+				</div>
+			</div>
+
+			<!-- Retrato: disco carmesí con la cabeza por encima del borde -->
+			<figure class="relative [grid-area:art] self-center" data-reveal style="--delay: 100ms">
+				<div class="medallion relative mx-auto">
+					<div class="medallion-box relative">
+						<span class="absolute rounded-full border-[0.5rem] border-accent/25" style="width: 40%; aspect-ratio: 1; left: -7%; top: 50%;" aria-hidden="true"></span>
+						<span class="absolute inset-x-0 bottom-0 aspect-square rounded-full bg-brand" aria-hidden="true"></span>
+						<span class="absolute rounded-full bg-accent-soft" style="width: 15%; aspect-ratio: 1; right: 1%; top: 6%;" aria-hidden="true"></span>
+						<div class="medallion-mask absolute inset-0">
+							<img
+								src="/img/portrait.webp"
+								alt="Portrait of Cristian Guzmán"
+								width="900"
+								height="900"
+								fetchpriority="high"
+								class="absolute bottom-0 left-1/2 w-[112%] max-w-none -translate-x-1/2"
+							/>
+						</div>
+					</div>
+					<figcaption class="absolute bottom-[6%] right-0 hidden md:flex items-center gap-2 rounded-full border border-line bg-paper px-3.5 py-1.5 text-[0.8125rem] text-muted shadow-sm">
+						<span class="size-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+						Bogotá
+						<time id="local-time" class="font-semibold tabular-nums text-ink">--:--</time>
+					</figcaption>
+				</div>
+			</figure>
+		</div>
+
+		<dl class="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3 md:mt-16" data-reveal>
+			{
+				FACTS.map(({ label, value, href }) => (
+					<a href={href} class="group flex flex-col gap-0.5 bg-paper/90 px-5 py-4 backdrop-blur transition-colors hover:bg-soft">
+						<dt class="text-sm text-muted">{label}</dt>
+						<dd class="font-semibold">{value}</dd>
+					</a>
+				))
+			}
+		</dl>
+	</div>
+</section>
+
+<style>
+	/*
+	 * Celular: nombre y retrato lado a lado, texto debajo; todo cabe en la primera pantalla.
+	 * Desde md: texto a la izquierda, retrato a la derecha ocupando las dos filas.
+	 */
+	.hero-inner {
+		padding-top: clamp(5rem, 14svh, 7rem);
+	}
+	.hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		grid-template-areas: 'head art' 'body body';
+		column-gap: 1rem;
+		row-gap: 1.5rem;
+	}
+	.hero-lead {
+		margin-top: 0;
+	}
+	.hero-cta {
+		margin-top: clamp(1.25rem, 3svh, 2rem);
+	}
+	/* El retrato nunca supera el alto de la pantalla: ancho limitado también por svh */
+	.medallion {
+		width: clamp(7rem, 36vw, 13rem);
+	}
+	@media (min-width: 768px) {
+		.hero-grid {
+			grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+			grid-template-areas: 'head art' 'body art';
+			column-gap: 2rem;
+			row-gap: clamp(1rem, 3svh, 1.75rem);
+		}
+		.medallion {
+			width: min(100%, 30rem, calc((100svh - 9rem) / 1.16));
+		}
+	}
+	.medallion-box {
+		aspect-ratio: 1 / 1.16;
+		container-type: inline-size;
+	}
+	/* Visible: todo lo que está sobre el centro del disco + el disco mismo */
+	.medallion-mask {
+		--cy: 56.9%;
+		-webkit-mask-image: linear-gradient(#000, #000), radial-gradient(circle 50cqw at 50% var(--cy), #000 calc(100% - 0.5px), transparent 100%);
+		mask-image: linear-gradient(#000, #000), radial-gradient(circle 50cqw at 50% var(--cy), #000 calc(100% - 0.5px), transparent 100%);
+		-webkit-mask-size: 100% var(--cy), 100% 100%;
+		mask-size: 100% var(--cy), 100% 100%;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: top, center;
+		mask-position: top, center;
+	}
+</style>
+
+<script>
+	const el = document.getElementById('local-time');
+	if (el) {
+		const fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Bogota' });
+		const tick = () => (el.textContent = fmt.format(new Date()));
+		tick();
+		setInterval(tick, 30_000);
+	}
+</script>

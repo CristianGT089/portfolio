@@ -1,0 +1,83 @@
+---
+import Icon from './Icon.astro';
+import Monogram from './Monogram.astro';
+import { PROFILE } from '../data/profile';
+---
+
+<section id="contact" class="mx-auto max-w-page px-4 pb-8 pt-16 sm:px-6 md:pt-24 lg:px-8">
+	<!-- Bloque carbón con las formas de la portada -->
+	<div class="relative isolate overflow-hidden rounded-3xl bg-[#2E3338] px-6 py-14 text-white sm:px-10 md:px-14 md:py-20" data-reveal>
+		<span class="absolute -z-10 aspect-square rounded-full bg-[#A4161A]" style="width: clamp(14rem, 34vw, 26rem); right: clamp(-9rem, -8vw, -4rem); top: clamp(-9rem, -8vw, -4rem);" aria-hidden="true"></span>
+		<span class="absolute -z-10 aspect-square rounded-full border-[0.5rem] border-[#A4161A]/45" style="width: clamp(6rem, 12vw, 9rem); right: clamp(8rem, 26vw, 22rem); top: clamp(9rem, 14vw, 13rem);" aria-hidden="true"></span>
+
+		<Monogram class="size-14 text-lg" />
+		<p class="mt-8 text-sm font-bold uppercase tracking-[0.08em] text-[#F7E6E6]/80">Contact</p>
+		<h2 class="mt-3 max-w-2xl text-balance font-bold leading-[1.02] tracking-[-0.025em]" style="font-size: clamp(2.25rem, 5.4vw, 4.25rem);">
+			Have a product to build or a team to grow? Let’s talk.
+		</h2>
+
+		<div class="mt-10 flex flex-wrap items-center gap-3">
+			<a
+				href={`mailto:${PROFILE.email}`}
+				class="inline-flex max-w-full items-center gap-2.5 rounded-full bg-white px-5 py-3 font-semibold text-[#2E3338] transition-colors hover:bg-[#F7E6E6]"
+			>
+				<Icon name="mail" class="size-4 shrink-0" />
+				<span class="truncate">{PROFILE.email}</span>
+			</a>
+			<button
+				id="copy-email"
+				type="button"
+				data-email={PROFILE.email}
+				class="inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-3 font-semibold text-white/85 transition-colors hover:border-white/60 hover:text-white"
+			>
+				<span class="copy-idle inline-flex items-center gap-2"><Icon name="copy" class="size-4" /> Copy</span>
+				<span class="copy-done hidden items-center gap-2"><Icon name="check" class="size-4" /> Copied</span>
+			</button>
+		</div>
+
+		<ul class="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/15 pt-6 text-white/75">
+			<li>
+				<a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-white">
+					<Icon name="linkedin" class="size-4" /> LinkedIn <Icon name="arrow-up-right" class="size-3.5" />
+				</a>
+			</li>
+			<li>
+				<a href={PROFILE.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-white">
+					<Icon name="github" class="size-4" /> GitHub <Icon name="arrow-up-right" class="size-3.5" />
+				</a>
+			</li>
+			<li>Bogotá, Colombia · UTC−5</li>
+			<li>{PROFILE.languages}</li>
+		</ul>
+	</div>
+
+	<!-- Pie como el de las propuestas: correo a la izquierda, píldora roja a la derecha -->
+	<footer class="mt-6 flex flex-wrap items-center justify-between gap-3 text-sm text-muted">
+		<p>
+			© {new Date().getFullYear()} {PROFILE.name} ·
+			<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer license" class="underline decoration-line underline-offset-2 hover:text-ink">CC BY 4.0</a>
+		</p>
+		<a href="#top" class="inline-flex items-center gap-1.5 rounded-lg bg-accent-soft px-2.5 py-1 font-bold text-accent">
+			Top <Icon name="arrow-up" class="size-3.5" />
+		</a>
+	</footer>
+</section>
+
+<script>
+	const btn = document.getElementById('copy-email');
+	btn?.addEventListener('click', async () => {
+		try {
+			await navigator.clipboard.writeText(btn.dataset.email ?? '');
+		} catch {
+			return;
+		}
+		const idle = btn.querySelector('.copy-idle')!;
+		const done = btn.querySelector('.copy-done')!;
+		idle.classList.add('hidden');
+		done.classList.replace('hidden', 'inline-flex');
+		setTimeout(() => {
+			done.classList.replace('inline-flex', 'hidden');
+			idle.classList.remove('hidden');
+		}, 1800);
+	});
+</script>

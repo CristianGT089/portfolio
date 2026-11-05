@@ -1,0 +1,78 @@
+---
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+import { VIGIA_NOVA as VN } from '../data/profile';
+---
+
+<section id="now" class="mx-auto max-w-page px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+	<SectionHeading index="01" title="Now — Vigía Nova" note="Where I’ve been focused full-time since leaving Evaluar.com." />
+
+	<div class="grid gap-x-12 gap-y-8 lg:grid-cols-12">
+		<div class="lg:col-span-7" data-reveal>
+			<p class="text-xl font-bold text-accent">
+				{VN.role} <span class="font-semibold text-muted">· {VN.roleNote}</span>
+			</p>
+			<p class="mt-1 text-muted">{VN.period} · {VN.legalName}, Bogotá</p>
+			<p class="mt-5 max-w-2xl text-pretty text-lg leading-relaxed">{VN.summary}</p>
+			<a href={VN.url} target="_blank" rel="noopener noreferrer" class="group mt-5 inline-flex items-center gap-1.5">
+				<span class="link">vigianova.com</span>
+				<Icon name="arrow-up-right" class="size-4 text-accent transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+			</a>
+		</div>
+
+		<!-- Caja «destacado» de las propuestas -->
+		<aside class="self-start rounded-2xl bg-accent-soft p-6 lg:col-span-5" data-reveal style="--delay: 80ms">
+			<p class="font-bold text-accent">My role</p>
+			<p class="mt-2 text-pretty leading-relaxed">{VN.highlight}</p>
+		</aside>
+	</div>
+
+	<!-- Cifras: \cifra de las propuestas -->
+	<dl class="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+		{
+			VN.stats.map(({ value, label }, i) => (
+				<div class="flex flex-col items-center justify-center rounded-2xl bg-soft px-4 py-6 text-center" data-reveal style={`--delay: ${i * 60}ms`}>
+					<dt class="text-pretty text-sm leading-snug text-muted">{label}</dt>
+					<dd class="order-first mb-1 whitespace-nowrap text-[1.75rem] font-bold leading-tight tabular-nums text-accent sm:text-[2rem]">{value}</dd>
+				</div>
+			))
+		}
+	</dl>
+
+	<div class="mt-14 grid gap-x-12 gap-y-10 lg:grid-cols-12">
+		<div class="lg:col-span-7" data-reveal>
+			<h3 class="text-xl font-bold text-accent">What I’ve built</h3>
+			<ul class="dot-list mt-5 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+				{
+					VN.work.map(({ title, body }) => (
+						<li class="text-pretty leading-relaxed">
+							<strong class="font-semibold">{title}:</strong> <span class="text-muted">{body}</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<!-- Caja «nota» neutra con la arquitectura -->
+		<aside class="self-start rounded-2xl bg-soft p-6 lg:col-span-5" data-reveal style="--delay: 80ms">
+			<p class="font-bold">Architecture I designed and run</p>
+			<ol class="mt-5">
+				{
+					VN.architecture.map(({ label, tech }, i) => (
+						<li>
+							<div class="flex items-center justify-between gap-4 rounded-xl border border-line bg-paper px-4 py-3">
+								<span class="text-sm font-bold uppercase tracking-[0.06em] text-accent">{label}</span>
+								<span class="text-right font-semibold">{tech}</span>
+							</div>
+							{i < VN.architecture.length - 1 && <span class="mx-auto block h-3 w-px bg-ink/25" aria-hidden="true" />}
+						</li>
+					))
+				}
+			</ol>
+			<p class="mt-5 text-sm font-semibold text-muted">Integrations</p>
+			<ul class="mt-2 flex flex-wrap gap-2">
+				{VN.integrations.map((name) => <li class="rounded-full border border-line bg-paper px-3 py-1 text-sm">{name}</li>)}
+			</ul>
+		</aside>
+	</div>
+</section>

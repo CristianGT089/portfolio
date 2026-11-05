@@ -1,34 +1,30 @@
 /** @type {import('tailwindcss').Config} */
+// Paleta tomada de estilo-cristian.sty (identidad de las propuestas): rojo carmesí + gris carbón.
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 export default {
-	/*darkMode: 'class', // Activar el modo oscuro basado en una clase*/
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: ['./src/**/*.{astro,html,js,ts,md,mdx}'],
 	theme: {
 		extend: {
 			colors: {
-				// Colores personalizados para el modo claro
-				firstRed: '#bd0d22',
-				secondRed: '#e35760',
-				firstLightGray: '#6f849c',
-				secondLightGray: '#435571',
-				firstDarkGray: '#252c35',
-				secondDarkGray: '#1c1d1c'
+				paper: token('paper'), // fondo de página
+				surface: token('surface'), // tarjetas
+				soft: token('soft'), // grisfondo: cajas neutras
+				ink: token('ink'), // carbón: texto principal
+				muted: token('muted'), // gris: texto secundario
+				line: token('line'), // grislinea: reglas y bordes
+				accent: token('accent'), // rojo: títulos, acentos
+				brand: token('brand'), // rojo de superficies llenas (botones, disco)
+				'brand-deep': token('brand-deep'), // rojooscuro
+				'accent-soft': token('accent-soft'), // rojosuave: cajas destacadas
 			},
-			backgroundImage: {
-				'accent-gradient': 'radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))',
-
-
-				'accent-dark-gradient': 'linear-gradient(0deg, #252c35 40%, #1c1d1c 60%)'
+			fontFamily: {
+				sans: ['"Source Sans 3 Variable"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 			},
-			keyframes: {
-				fall: {
-				  "0%": { transform: "translateY(0)", opacity: "1" },
-				  "100%": { transform: "translateY(100vh)", opacity: "0" },
-				},
-			},
-			animation: {
-				fall: "fall linear infinite",
+			maxWidth: {
+				page: '74rem',
 			},
 		},
 	},
 	plugins: [],
-}
+};
